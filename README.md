@@ -32,6 +32,6 @@ Directory Structure
 - scripts/: Contains the main script to run the training and evaluation.
 - logs/: Output directory for results.
 
-License
+### License
 
 This project is licensed under the MIT License.
