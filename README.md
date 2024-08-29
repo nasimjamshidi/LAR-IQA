@@ -13,9 +13,11 @@ This project involves evaluating and training image quality assessment models us
 ### Training
 
 Run the training script:
-'''
-  pip install -r requirements.txt
-'''
+```
+    git clone https://github.com/nasimjamshidi/LAR-IQA
+    pip install -r requirements.txt
+```
+
 python scripts/main.py --csv_path path/to/your/csv_file.csv --root_dir /path/to/dataset --output_path /path/to/output.csv [--use_kan] [--loss_type l2|plcc] [--color_space RGB|HSV|LAB|YUV]
 
 Options
