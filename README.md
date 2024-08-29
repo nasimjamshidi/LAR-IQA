@@ -1,4 +1,4 @@
-# Image Quality Assessment Project
+# LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model
 
 ## Description
 This project involves evaluating and training image quality assessment models using MobileNet architectures with optional KAN layers.
@@ -7,17 +7,13 @@ This project involves evaluating and training image quality assessment models us
 1. Clone the repository.
 2. Install the required dependencies using:
 
-
-
-## Usage
-### Training
-
-Run the training script:
 ```
     git clone https://github.com/nasimjamshidi/LAR-IQA
     pip install -r requirements.txt
 ```
 
+## Usage
+### Training
 Run the training script:
 
 ```bash
