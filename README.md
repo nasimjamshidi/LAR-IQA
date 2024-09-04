@@ -10,7 +10,7 @@ Nasim Jamshidi Avanaki, Abhijay Ghildiyal, Nabajeet Barman, Saman Zadtootaghaj
 ## Description
 This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model designed for efficient deployment on mobile devices. It uses a dual-branch architecture, with one branch trained on synthetically distorted images and the other on authentically distorted images, improving generalizability across distortion types. Each branch includes a mobile-based image encoder (MobileNet V3) and a Kolmogorov-Arnold Network (KAN) for quality prediction, offering better accuracy than traditional MLPs. The model also incorporates multiple color spaces during training for enhanced robustness. 
 
-![Fig](Model_Architecture.png)
+![Fig](images/Model_Architecture.png)
 ## Installation
 1. Clone the repository.
 2. Install the required dependencies using:
