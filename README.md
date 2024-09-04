@@ -1,8 +1,8 @@
 # LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model
 
 ## Description
-This project involves evaluating and training image quality assessment models using MobileNet architectures with optional KAN layers.
 
+This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model designed for efficient deployment on mobile devices. It uses a dual-branch architecture, with one branch trained on synthetically distorted images and the other on authentically distorted images, improving generalizability across distortion types. Each branch includes a mobile-based image encoder (MobileNet V3) and a Kolmogorov-Arnold Network (KAN) for quality prediction, offering better accuracy than traditional MLPs. The model also incorporates multiple color spaces during training for enhanced robustness. 
 ![Fig](Model_Architecture.png)
 
 ## Installation
