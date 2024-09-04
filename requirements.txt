@@ -7,4 +7,4 @@ opencv-python
 scipy
 numpy
 wandb
-efficientkan
+git+https://github.com/Blealtan/efficient-kan.git
