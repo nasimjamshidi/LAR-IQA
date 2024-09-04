@@ -1,4 +1,7 @@
-# LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model
+# LAR-IQA @ ECCV 2024 AIM Workshop
+
+## [LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model](https://arxiv.org/abs/2408.17057)
+
 
 ## Description
 
