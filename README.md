@@ -39,7 +39,10 @@ python scripts/main.py --csv_files path/to/your/train_csv1.csv path/to/your/trai
 - color_space: Optional. Select the color space to train on.
 
 ### Inference 
-Run the inference script on a single image:
+If you would like to run a demo of the inference, you can easily do so through Google Colab. Click [ <a href="https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a) to get started.
+
+Alternatively, to run the inference script manually on a single image, use the code below:
+
 ```bash
 python scripts/inference.py --image_path path/to/your/image.jpg --model_path path/to/trained_model.pt [--use_kan] [--color_space RGB|HSV|LAB|YUV]
 ```
