@@ -3,7 +3,6 @@
 ## Description
 This project involves evaluating and training image quality assessment models using MobileNet architectures with optional KAN layers.
 
-![Image Description](https://github.com/nasimjamshidi/LAR-IQA.git/Model_Architecture.png)
 ## Installation
 1. Clone the repository.
 2. Install the required dependencies using:
