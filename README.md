@@ -2,7 +2,7 @@
 
 ## Description
 This project involves evaluating and training image quality assessment models using MobileNet architectures with optional KAN layers.
-
+![image info](Model Architecture.png)
 
 ## Installation
 1. Clone the repository.
