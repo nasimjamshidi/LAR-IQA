@@ -54,23 +54,17 @@ Options
 
 ### Directory Structure
 
-- models/: Contains model definitions.
 - data/: Contains dataset classes.
-- utils/: Contains utility functions for image processing, training, and loss definitions.
+- images/: Contains a sample image used for the demo and an image of the model architecture.
+- models/: Contains model definitions.
 - scripts/: Contains the main script to run the training and evaluation.
-- logs/: Output directory for results.
+- utils/: Contains utility functions for image processing, training, and loss definitions.
 
 ### Citation and Acknowledgement
 
 ```
 @inproceedings{Avanaki2024LAR-IQA,
   title={LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model},
-  author={Jamshidi Avanaki, Nasim and Ghildiyal, Abhijay and Barman, Nabajeet and Zadtootaghaj, Saman},
-  booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
-  year={2024}
-}
-@inproceedings{Avanaki2024MSLIQA,
-  title={MSLIQA: Enhancing Learning Representations for Image Quality Assessment through Multi-Scale Learning},
   author={Jamshidi Avanaki, Nasim and Ghildiyal, Abhijay and Barman, Nabajeet and Zadtootaghaj, Saman},
   booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
   year={2024}
