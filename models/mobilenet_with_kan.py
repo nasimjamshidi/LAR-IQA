@@ -1,7 +1,7 @@
+from efficient_kan import KAN
 import torch
 import torch.nn as nn
 import timm
-from efficientkan.src.efficient_kan import KAN
 
 class MobileNetWithKAN(nn.Module):
     def __init__(self):
