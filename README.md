@@ -1,11 +1,11 @@
 # LAR-IQA @ ECCV 2024 AIM Workshop
 
-## [LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model](https://arxiv.org/abs/2408.17057)
+### [LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model](https://arxiv.org/abs/2408.17057)
+Nasim Jamshidi Avanaki, Abhijay Ghildiyal, Nabajeet Barman, Saman Zadtootaghaj
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2408.17057)
 [ <a href="https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a)
 <br>
-Nasim Jamshidi Avanaki, Abhijay Ghildiyal, Nabajeet Barman, Saman Zadtootaghaj
 
 ## Description
 This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model designed for efficient deployment on mobile devices. It uses a dual-branch architecture, with one branch trained on synthetically distorted images and the other on authentically distorted images, improving generalizability across distortion types. Each branch includes a mobile-based image encoder (MobileNet V3) and a Kolmogorov-Arnold Network (KAN) for quality prediction, offering better accuracy than traditional MLPs. The model also incorporates multiple color spaces during training for enhanced robustness. 
@@ -52,13 +52,30 @@ Options
 - use_kan: Optional. Use the MobileNetMergedWithKAN model.
 - color_space: Optional. Select the color space to train on (e.g., RGB, LAB, YUV).
 
-Directory Structure
+### Directory Structure
 
 - models/: Contains model definitions.
 - data/: Contains dataset classes.
 - utils/: Contains utility functions for image processing, training, and loss definitions.
 - scripts/: Contains the main script to run the training and evaluation.
 - logs/: Output directory for results.
+
+### Citation and Acknowledgement
+
+```
+@inproceedings{Avanaki2024LAR-IQA,
+  title={LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model},
+  author={Jamshidi Avanaki, Nasim and Ghildiyal, Abhijay and Barman, Nabajeet and Zadtootaghaj, Saman},
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
+  year={2024}
+}
+@inproceedings{Avanaki2024MSLIQA,
+  title={MSLIQA: Enhancing Learning Representations for Image Quality Assessment through Multi-Scale Learning},
+  author={Jamshidi Avanaki, Nasim and Ghildiyal, Abhijay and Barman, Nabajeet and Zadtootaghaj, Saman},
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
+  year={2024}
+}
+```
 
 ### License
 
