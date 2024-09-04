@@ -2,6 +2,12 @@
 
 ## [LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model](https://arxiv.org/abs/2408.17057)
 
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2408.17057)
+[ <a href="https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a)
+
+<br>
+
+[Marcos V. Conde](https://scholar.google.com/citations?user=NtB1kjYAAAAJ&hl=en), [Ui-Jin Choi](https://scholar.google.com/citations?user=MMF5LCoAAAAJ&hl=en), [Maxime Burchi](https://scholar.google.com/citations?user=7S_l2eAAAAAJ&hl=en), [Radu Timofte](https://scholar.google.com/citations?user=u3MwH5kAAAAJ&hl=en)
 
 ## Description
 
