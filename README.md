@@ -28,15 +28,23 @@ Run the training script:
 python scripts/main.py --csv_files path/to/your/train_csv1.csv path/to/your/train_csv2.csv --root_dirs /path/to/train_dataset1 /path/to/train_dataset2 --val_csv_file path/to/your/val_csv.csv --val_root_dir /path/to/val_dataset --output_path /path/to/output.csv --batch_size 32 [--use_kan] [--loss_type l2|plcc] [--color_space RGB|HSV|LAB|YUV]
 ```
 
-- csv_files: Required. Paths to the input CSV files for training.
-- root_dirs: Required. Root directories of the datasets for training.
-- val_csv_file: Required. Path to the validation CSV file.
-- val_root_dir: Required. Root directory of the validation dataset.
-- output_path: Required. Path to save the output CSV file.
-- batch_size: Optional. Batch size for training.
-- use_kan: Optional. Use the MobileNetMergedWithKAN model.
-- loss_type: Optional. Choose between L2 loss (l2) or Pearson Correlation Loss (plcc).
-- color_space: Optional. Select the color space to train on.
+-- csv_files: Required. Paths to the input CSV files for training.
+
+-- root_dirs: Required. Root directories of the datasets for training.
+
+-- val_csv_file: Required. Path to the validation CSV file.
+
+-- val_root_dir: Required. Root directory of the validation dataset.
+
+-- output_path: Required. Path to save the output CSV file.
+
+-- batch_size: Optional. Batch size for training.
+
+-- use_kan: Optional. Use the MobileNetMergedWithKAN model.
+
+-- loss_type: Optional. Choose between L2 loss (l2) or Pearson Correlation Loss (plcc).
+
+-- color_space: Optional. Select the color space to train on.
 
 ### Inference 
 If you would like to run a demo of the inference, you can easily do so through Google Colab. Click [ <a href="https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb#scrollTo=LJBhv-V_Eh5a) to get started.
@@ -47,10 +55,9 @@ Alternatively, to run the inference script manually on a single image, use the c
 python scripts/inference.py --image_path path/to/your/image.jpg --model_path path/to/trained_model.pt [--use_kan] [--color_space RGB|HSV|LAB|YUV]
 ```
 
-Options
+-- use_kan: Optional. Use the MobileNetMergedWithKAN model.
 
-- use_kan: Optional. Use the MobileNetMergedWithKAN model.
-- color_space: Optional. Select the color space to train on (e.g., RGB, LAB, YUV).
+-- color_space: Optional. Select the color space to train on (e.g., RGB, LAB, YUV).
 
 ### Directory Structure
 
