@@ -4,6 +4,12 @@ from .loss import get_loss_function
 from data.dataset import MultiColorSpaceDataset
 from torch.utils.data import DataLoader
 from torchvision import transforms
+import sys
+import os
+import numpy as np
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
+from models.mobilenet_merged_with_kan import MobileNetMergedWithKAN
+from models.mobilenet_merged import MobileNetMerged
 
 class MultiDatasetLoader:
     def __init__(self, datasets, batch_size, shuffle=True, num_workers=8):
@@ -35,11 +41,13 @@ class MultiDatasetLoader:
 
 def build_optimizer_and_scheduler(network, config, train_loaders):
     optimizer = torch.optim.AdamW(
-        lr=config.learning_rate,
-        params=network.parameters(),
-        weight_decay=config.weight_decay
+        lr= config.learning_rate,
+        params= network.parameters(),
+        weight_decay= config.weight_decay
     )
 
+
+    warmup_epochs = config.warmup_epochs
     warmup_iter = 0
     for train_loader in train_loaders.values():
         warmup_iter += int(config.warmup_epochs * len(train_loader))
@@ -59,24 +67,33 @@ def train_epoch(network, loader, optimizer, scheduler, l2loss, plccloss, weights
     cumu_loss = 0
     network.train()
     for _, data in enumerate(loader):
-        images = data[color_space].cuda()
+        images_authentic = data[color_space + '_authentic'].cuda()
+        images_synthetic = data[color_space + '_synthetic'].cuda()
         labels = data['annotations'].cuda().float()
 
-        outputs = network(images)
+        outputs = network(images_authentic, images_synthetic)
 
         outputs = outputs.view(outputs.size()[0], 1, 1)
 
         optimizer.zero_grad()
-
-        loss = weights['NR_msel'] * l2loss(labels.flatten(), outputs.flatten()) + \
-               weights['NR_crl'] * plccloss(outputs.flatten()[None, :], labels.flatten()[None, :])
+        
+        NR_msel = l2loss(labels.flatten(), outputs.flatten())
+        
+        if torch.isnan(outputs).any() or torch.isnan(labels).any():
+            print(f"NaNs found in outputs or labels for task {task_id}")
+            NR_crl = torch.tensor(0.0, device=outputs.device)
+        else:
+            NR_crl = plccloss(outputs.flatten()[None, :], labels.flatten()[None, :])
+        
+        
+        loss = weights['NR_crl'] * NR_crl + weights['NR_msel'] * NR_msel
 
         loss.backward()
         optimizer.step()
-        scheduler.step()  # Update learning rate
+        scheduler.step()  
 
         cumu_loss += loss.item()
-        wandb.log({"batch_loss": loss.item()})
+        wandb.log({"batch_loss": loss.item(), "NR_msel": NR_msel.item(), "NR_crl": NR_crl.item()})
 
     return cumu_loss / len(loader)
 
@@ -85,10 +102,12 @@ def validate_epoch(network, loader, l2loss, plccloss, weights, color_space):
     network.eval()
     with torch.no_grad():
         for _, data in enumerate(loader):
-            images = data[color_space].cuda()
+            images_authentic = data[color_space + '_authentic'].cuda()
+            images_synthetic = data[color_space + '_synthetic'].cuda()
+
             labels = data['annotations'].cuda().float()
 
-            outputs = network(images)
+            outputs = network(images_authentic, images_synthetic)
             outputs = outputs.view(outputs.size()[0], 1, 1)
 
             loss = weights['NR_msel'] * l2loss(outputs.flatten(), labels.flatten()) + \
@@ -109,11 +128,20 @@ def train(config=None):
 
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
-        model = MobileNetV2WithAttention().to(device)
+        if config.use_kan:
+            model = MobileNetMergedWithKAN()
+        else:
+            model = MobileNetMerged(
+                        authentic_weights_path="./pretrained/single_branch_pretrained/Authentic.pth", 
+                        synthetic_weights_path="./pretrained/single_branch_pretrained/Synthetic.pth"
+                    )
+            
+            
+        model.to(device)
 
         optimizer, scheduler = build_optimizer_and_scheduler(model, config, {"train_loader": train_loader})
-        l2loss = get_loss_function(config.loss_type)
-        plccloss = get_loss_function(config.plcc_loss_type)
+        l2loss = get_loss_function('l2')
+        plccloss = get_loss_function('plcc')
 
         weights = {
             'NR_msel': config.NR_msel_weight,
@@ -126,16 +154,22 @@ def train(config=None):
             wandb.log({"train_loss": avg_train_loss, "val_loss": avg_val_loss, "epoch": epoch})
 
             # Save model checkpoint
-            model_name = f'./model/checkpoint_epoch_{epoch}.pt'
+            model_name = f'./log/checkpoint_epoch_{epoch}.pt'
             torch.save(model.state_dict(), model_name)
 
-# Utility function to build dataset
 def build_dataset(batch_size, csv_files, root_dirs):
     transform = transforms.Compose([
-        transforms.Resize((256,256)),
+        transforms.Resize((384, 384)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
-    datasets = [MultiColorSpaceDataset(csv_file=csv_file, root_dir=root_dir, transform=transform) for csv_file, root_dir in zip(csv_files, root_dirs)]
+    transform2 = transforms.Compose([
+        transforms.CenterCrop((1280, 1280)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
+
+    datasets = [MultiColorSpaceDataset(csv_file=csv_file, root_dir=root_dir, transform=transform, transform2=transform2) for csv_file, root_dir in zip(csv_files, root_dirs)]
     loader = MultiDatasetLoader(datasets, batch_size)
     return loader
+

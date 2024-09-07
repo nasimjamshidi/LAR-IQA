@@ -4,11 +4,17 @@ import torch.nn as nn
 import timm
 
 class MobileNetMergedWithKAN(nn.Module):
-    def __init__(self):
+    def __init__(self, authentic_weights_path=None, synthetic_weights_path=None):
         super(MobileNetMergedWithKAN, self).__init__()
         
         self.authentic = timm.create_model("mobilenetv3_large_100.ra_in1k", pretrained=False)
         self.syntetic  = timm.create_model("mobilenetv3_large_100.ra_in1k", pretrained=False)
+        
+        if authentic_weights_path:
+            self.authentic.load_state_dict(torch.load(authentic_weights_path, map_location=torch.device('cpu')))
+        
+        if synthetic_weights_path:
+            self.syntetic.load_state_dict(torch.load(synthetic_weights_path, map_location=torch.device('cpu')))
         
         for param in self.authentic.parameters():
             param.requires_grad = True

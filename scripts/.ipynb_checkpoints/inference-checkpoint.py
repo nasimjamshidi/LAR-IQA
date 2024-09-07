@@ -1,15 +1,15 @@
+from torchvision import transforms
+from PIL import Image
+import numpy as np
+import argparse
+import torch
+import timm
 import sys
 import os
-
+import cv2
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
-
-import torch
-from PIL import Image
-from torchvision import transforms
-import argparse
-import timm
-from models.mobilenet_merged import MobileNetMerged
 from models.mobilenet_merged_with_kan import MobileNetMergedWithKAN
+from models.mobilenet_merged import MobileNetMerged
 
 def load_model(model_path, use_kan, device):
     if use_kan:
