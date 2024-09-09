@@ -55,7 +55,7 @@ Arguments:
 Note: If --use_sweep is provided, the script will initiate a W&B sweep for hyperparameter optimization using random search. The sweep optimizes metrics such as val_loss and tunes hyperparameters like learning rate, weight decay, optimizer type, etc. 
 
 For hyperparameter sweeps, you can customize the configuration in the code. 
-Please note that we added an example of how the csv files for training adn validation must look like, using a very small portion of UHD-IQA dataset. This is only for the demo of training; please refer to the main dataset. 
+Please note that we added an example of how the csv files for training and validation must look like, using a very small portion of UHD-IQA dataset. This is only for the demo of training; please refer to the main dataset. 
 
 Please note that the training and validation CSV files must follow this format: each file should contain two columns— the first column for the image name and the second for the corresponding subjective score of the image.
 
