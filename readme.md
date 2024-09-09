@@ -33,15 +33,25 @@ python scripts/main.py --csv_files path/to/your/train.csv path/to/your/train.csv
 Arguments:
 
 -- csv_files: Required. Paths to the input CSV files for training. 
+
 -- root_dirs: Required. Root directories of the datasets for training.
+
 -- val_csv_file: Required. Path to the validation CSV file.
+
 -- val_root_dir: Required. Root directory of the validation dataset.
+
 -- output_path: Required. Path to save the output CSV file.
+
 -- batch_size: Optional. Batch size for training (default: 20).
+
 -- num_epochs: Optional. Number of epochs for training (default: 10).
+
 -- use_kan: Optional. Use the MobileNetMergedWithKAN model.
+
 -- color_space: Optional. Select the color space for training. Choose from RGB, HSV, LAB, or YUV (default: RGB).
+
 -- use_sweep: Optional. Use W&B sweep for hyperparameter optimization.
+
 Note: If --use_sweep is provided, the script will initiate a W&B sweep for hyperparameter optimization using random search. The sweep optimizes metrics such as val_loss and tunes hyperparameters like learning rate, weight decay, optimizer type, etc. 
 
 For hyperparameter sweeps, you can customize the configuration in the code. 
