@@ -94,7 +94,7 @@ We also offer 1-branch pretrained models, which we recommend using for training 
 ```
 @inproceedings{Avanaki2024LAR-IQA,
   title={LAR-IQA: A Lightweight, Accurate, and Robust No-Reference Image Quality Assessment Model},
-  author={Jamshidi Avanaki, Nasim and Ghildiyal, Abhijay and Barman, Nabajeet and Zadtootaghaj, Saman},
+  author={Jamshidi Avanaki, Nasim and Ghildyal, Abhijay and Barman, Nabajeet and Zadtootaghaj, Saman},
   booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
   year={2024}
 }
