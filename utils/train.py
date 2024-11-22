@@ -12,7 +12,7 @@ from models.mobilenet_merged_with_kan import MobileNetMergedWithKAN
 from models.mobilenet_merged import MobileNetMerged
 
 class MultiDatasetLoader:
-    def __init__(self, datasets, batch_size, shuffle=True, num_workers=8):
+    def __init__(self, datasets, batch_size, shuffle=True, num_workers=2):
         self.datasets = datasets
         self.batch_size = batch_size
         self.shuffle = shuffle
