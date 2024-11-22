@@ -23,7 +23,7 @@ This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model
 ## Usage
 ### Training
 
-The training is currently available only for the dual-branch setup, where training begins from the pretrained synthetic and authentic branches. Please note that these branches were not trained on the UHD-IQA dataset, but rather on other synthetic and authentic datasets (refer to section 4.5 in the paper). They are used as pretrained weights to initialize the dual-branch training. We believe that fine-tuning the model from this starting point yields solid results for a new No-Reference Image Quality Assessment (NR-IQA) dataset.
+The training is currently available only for the dual-branch setup, where training begins from the pretrained synthetic and authentic branches. Please note that these branches were not trained on the UHD-IQA dataset, but rather on other synthetic and authentic datasets (refer to section 4.5 in the paper). They are used as pretrained weights to initialize the dual-branch training. We believe that fine-tuning the model from this starting point yields solid results for a new No-Reference Image Quality Assessment (NR-IQA) dataset. Click [ <a href="https://colab.research.google.com/drive/1O5nPD7g7EWO5-cskjH-TkhMffhy5-p12?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1O5nPD7g7EWO5-cskjH-TkhMffhy5-p12?usp=sharing) to run a demo of training.
 
 Run the training script:
 
