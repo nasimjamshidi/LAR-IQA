@@ -10,7 +10,7 @@ Nasim Jamshidi Avanaki, Abhijay Ghildyal, Nabajeet Barman, Saman Zadtootaghaj
 <br>
 
 ## Update
-- 29.01.2025: Due to exceeding the Large File Storage (LFS) limit for the repository, the pre-trained models have been moved to Google Drive.  Please refer to the [Installation](#installation) section for download and setup instructions. 
+✅ **29.01.2025:** Due to exceeding the Large File Storage (LFS) limit for the repository, the pre-trained models have been moved to Google Drive.  Please refer to the [Installation](#installation) section for download and setup instructions. 
 
 ## Description
 This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model designed for efficient deployment on mobile devices. It uses a dual-branch architecture, with one branch trained on synthetically distorted images and the other on authentically distorted images, improving generalizability across distortion types. Each branch includes a mobile-based image encoder (MobileNet V3) and a Kolmogorov-Arnold Network (KAN) for quality prediction, offering better accuracy than traditional MLPs. The model also incorporates multiple color spaces during training for enhanced robustness. 
@@ -19,7 +19,7 @@ This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model
 ## Installation
 1. Clone the repository.
 2. Install the required dependencies using the commands provided below.
-3. Download the pre-trained models from [Google Drive](https://drive.google.com/drive/folders/1HZY-eW6TxIEy6XtXC4Inn5sn3kkAO2UK?usp=sharing).
+3. Download the pretrained models from [Google Drive](https://drive.google.com/drive/folders/1HZY-eW6TxIEy6XtXC4Inn5sn3kkAO2UK?usp=sharing).
 5. Place the downloaded models in the pretrained directory within the main path of this repository (i.e., LAR-IQA/pretrained/).
 
 ```
