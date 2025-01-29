@@ -8,8 +8,9 @@ Nasim Jamshidi Avanaki, Abhijay Ghildyal, Nabajeet Barman, Saman Zadtootaghaj
 [ <a href="https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1g0hm-S25oYOd5OSFT91uMgZA2UANGSOb?usp=sharing)
 
 <br>
+
 ## Update
-- 29.01.2025: Due to exceeding the Large File Storage (LFS) limit for the repository, the pre-trained models have been moved to Google Drive.
+- 29.01.2025: Due to exceeding the Large File Storage (LFS) limit for the repository, the pre-trained models have been moved to Google Drive.  Please refer to the [Installation](#installation) section for download and setup instructions. 
 
 ## Description
 This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model designed for efficient deployment on mobile devices. It uses a dual-branch architecture, with one branch trained on synthetically distorted images and the other on authentically distorted images, improving generalizability across distortion types. Each branch includes a mobile-based image encoder (MobileNet V3) and a Kolmogorov-Arnold Network (KAN) for quality prediction, offering better accuracy than traditional MLPs. The model also incorporates multiple color spaces during training for enhanced robustness. 
