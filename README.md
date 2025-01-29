@@ -18,7 +18,7 @@ This model is a lightweight No-Reference Image Quality Assessment (NR-IQA) model
 ## Installation
 1. Clone the repository.
 2. Install the required dependencies using the commands provided below.
-3. Download the pre-trained models from Google Drive from here [(https://drive.google.com/drive/folders/1HZY-eW6TxIEy6XtXC4Inn5sn3kkAO2UK?usp=sharing)].
+3. Download the pre-trained models from Google Drive from [here](https://drive.google.com/drive/folders/1HZY-eW6TxIEy6XtXC4Inn5sn3kkAO2UK?usp=sharing).
 5. Place the downloaded models in the pretrained directory within the main path of this repository (i.e., LAR-IQA/pretrained/).
 
 ```
