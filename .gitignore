@@ -1,3 +1,13 @@
+# Ignore Jupyter notebook checkpoint files
+.ipynb_checkpoints/
+
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore .DS_Store files (for macOS)
 .DS_Store
-__pycache__
-.ipynb_checkpoints
+
+# Ignore other typical files or directories
+*.log
+*.env
