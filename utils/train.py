@@ -80,7 +80,7 @@ def train_epoch(network, loader, optimizer, scheduler, l2loss, plccloss, weights
         NR_msel = l2loss(labels.flatten(), outputs.flatten())
         
         if torch.isnan(outputs).any() or torch.isnan(labels).any():
-            print(f"NaNs found in outputs or labels for task {task_id}")
+            print(f"NaNs found in outputs or labels - set the batch size greater than 4")
             NR_crl = torch.tensor(0.0, device=outputs.device)
         else:
             NR_crl = plccloss(outputs.flatten()[None, :], labels.flatten()[None, :])
