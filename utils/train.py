@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 import sys
 import os
+import math
 import numpy as np
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
 from models.mobilenet_merged_with_kan import MobileNetMergedWithKAN
@@ -53,11 +54,11 @@ def build_optimizer_and_scheduler(network, config, train_loaders):
         warmup_iter += int(config.warmup_epochs * len(train_loader))
     max_iter = int((config.num_epochs + config.l_num_epochs) * len(train_loader))
     
+    
     lr_lambda = (
         lambda cur_iter: cur_iter / warmup_iter
         if cur_iter <= warmup_iter
-        else 0.5 * (1 + torch.cos(torch.pi * (cur_iter - warmup_iter) / (max_iter - warmup_iter)))
-    )
+        else 0.5 * (1 + torch.cos(torch.tensor(math.pi * (cur_iter - warmup_iter) / (max_iter - warmup_iter)))))
     
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lr_lambda)
     
