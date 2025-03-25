@@ -130,7 +130,10 @@ def train(config=None):
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
         if config.use_kan:
-            model = MobileNetMergedWithKAN()
+            model = MobileNetMergedWithKAN(
+                authentic_weights_path="./pretrained/single_branch_pretrained/Authentic.pth",
+                synthetic_weights_path="./pretrained/single_branch_pretrained/Synthetic.pth"
+                    )
         else:
             model = MobileNetMerged(
                         authentic_weights_path="./pretrained/single_branch_pretrained/Authentic.pth", 
